@@ -1,0 +1,18 @@
+d[03-Feb-2023 07:42:53 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:42:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php(20): require_once()
+#1 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:42:55 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:42:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php(20): require_once()
+#1 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:43:08 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:43:08 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php(21): require_once()
+#1 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34

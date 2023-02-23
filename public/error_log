@@ -1,0 +1,45 @@
+[03-Feb-2023 06:48:04 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../public_html/fleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:48:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../public_html/fleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:48:06 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../public_html/fleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:48:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../public_html/fleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:48:24 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../public_html/fleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:48:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../public_html/fleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:49:32 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../public_html/fleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:49:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../public_html/fleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:01 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../fleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../fleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:02 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../fleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../fleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:03 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../fleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../fleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:03 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../fleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/../fleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:38 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/publicfleetmgmt/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 06:50:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/publicfleetmgmt/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
