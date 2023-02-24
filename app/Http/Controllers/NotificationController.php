@@ -12,10 +12,6 @@ class NotificationController extends Controller
 
     public function sendSmsNotificaition()
     {
-        $user =User:: query()
-        ->where('phone','8805778742');
-        dd($user);
-        $user->notify(new SmsNotification);
-        return "mesage";
+       
     }
 }

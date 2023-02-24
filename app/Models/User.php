@@ -52,8 +52,5 @@ class User extends Authenticatable
  * @param  \Illuminate\Notifications\Notification  $notification
  * @return string
  */
-    public function routeNotificationForVonage($notification)
-    {
-        return $this->phone;
-    }
+
 }
