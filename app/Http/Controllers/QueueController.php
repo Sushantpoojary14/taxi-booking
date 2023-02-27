@@ -13,11 +13,12 @@ class QueueController extends Controller
     }
     function test2() {
         $code = null;
-        return view('admin.test2',compact('code'));
+        return view('test2',compact('code'));
     }
-    function test3() {
-        $code = null;
-        return view('admin.test3');
+    function code() {
+        $code = Qrcode::query()
+        ->first();
+        return json_encode($code);
     }
     public function qrcode(request $request){
 
@@ -25,7 +26,7 @@ class QueueController extends Controller
         if($code == null){
             // dd($qrcode);
 
-            return view('admin.test',compact('code'));
+            return view('admin.qrcode',compact('code'));
         }
        $code = Qrcode::query()
             ->delete();
@@ -36,7 +37,7 @@ class QueueController extends Controller
             ]);
 
         $code = $request->code;
-        return view('admin.test',compact('code'));
+        return view('admin.qrcode',compact('code'));
 
 
 

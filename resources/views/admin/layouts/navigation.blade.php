@@ -26,6 +26,13 @@
                     </x-nav-link>
 
             </a> --}}
+              <a class="mr-6 hover:text-white">
+
+                    <x-nav-link :href="route('admin.trip')" :active="request()->routeIs('admin.trip')">
+                        {{ __('Trip ') }}
+                    </x-nav-link>
+
+            </a>
             <a class="mr-6 hover:text-white">
 
                 <x-nav-link :href="url('admin/queue')" :active="request()->routeIs('admin.queue')">

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Driver;
 use App\Models\Vehicles;
 use App\Models\Category;
+use App\Models\Customer;
 class Relation extends Model
 {
     use HasFactory;
@@ -30,5 +31,8 @@ public function vehicles(){
 
     public function category(){
         return $this->belongsTo(Category::class,'category_id','id');
+    }
+    public function customer(){
+        return $this->hasMany(Customer::class,'relation_id','id');
     }
 }

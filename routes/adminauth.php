@@ -80,4 +80,5 @@ Route::group(['middleware'=>['auth:admin'],'prefix'=>'admin','as'=>'admin.'],fun
     Route::any('/printedit/{id}',[AdminController::class, 'printedit'])->name('printedit');
     Route::any('/printedit',[AdminController::class, 'print'])->name('print');
     Route::post('/printview',[AdminController::class, 'printview'])->name('printview');
+    Route::any('/trip',[AdminController::class, 'showtrip'])->name('trip');
 });

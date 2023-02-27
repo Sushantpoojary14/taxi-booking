@@ -18,7 +18,8 @@ class Customer extends Model
         'amount',
         'relation_id',
         'payment_mode',
-        'bookint_time'
+        'booking_time',
+        'booking_date'
 
     ];
 }

@@ -89,21 +89,22 @@
 
                                                 <li>Customer Name: {{ ' ' . $customer->fullname }}</li>
                                                 <li>Booking ID: {{ ' ' . $customer->id }}</li>
-                                                <li>Date: {{ ' ' . $currentDate }}</li>
+                                                <li>Date: {{ ' ' . $current }}</li>
 
 
-                                                @foreach ($data->vehicles as $item)
-                                                    <li>Vechicle Number:{{ ' ' . $item->car_number }}</li>
-                                                @endforeach
-                                                @foreach ($data->driver as $item)
+                                                {{-- @foreach ($data->vehicles as $item) --}}
+
+                                                {{-- @endforeach --}}
+
                                                     <li>Driver Name:
-                                                        {{ ' ' . $item->firstname . ' ' . $item->lastname }}
+                                                        {{ ' ' . $data->driver->firstname . ' ' . $data->driver->lastname }}
                                                     </li>
-                                                    <li>Driver Contact: {{ ' ' . $item->phone }}</li>
-                                                @endforeach
-                                                @foreach ($data->category as $item)
-                                                    <li>Vehcile Type:{{ ' ' . $item->type }}</li>
-                                                @endforeach
+                                                    <li>Driver Contact: {{ ' ' . $data->driver->phone }}</li>
+
+                                                    <li>Vechicle Number:{{ ' ' . $data->vehicles->car_number }}</li>
+
+                                                    <li>Vehcile Type:{{ ' ' . $data->category->type }}</li>
+
 
                                                 <li>From: Mopa Goa International Airport, Mopa-Goa </li>
                                                 <li>To: {{ ' ' . $customer->location }}</li>
@@ -166,7 +167,7 @@
                                         </div>
 
                                         <div class="p-2 w-full flex px-96   justify-evenly space-x-3">
-                                            <form action="{{ url('admin/dispatch/' . $id) }}" method="/get" id="myForm">
+                                            <form action="{{ url('admin/dispatch/' . $data->id) }}" method="get" id="myForm">
                                                 {{-- <input type="hidden" name="id" value="{{ $id }}"> --}}
                                             </form>
 
@@ -177,7 +178,7 @@
                                                 Print
                                             </button>
 
-                                            <form action="{{ url('/admin/printedit/' . $id) }}" method="post" >
+                                            <form action="{{ url('/admin/printedit/' . $data->id) }}" method="post" >
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{ $customer->id }}">
                                                 <input type="hidden" name="fullname" value="{{ $customer->fullname }}">

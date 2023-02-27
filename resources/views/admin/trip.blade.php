@@ -6,44 +6,62 @@
                 <div class="py-6 text-white dark:text-gray-100">
                     <section class="text-gray-600 body-font">
                         <div class="container px-2 py-1 items-center">
-                            <div class="flex flex-row  items-center lg:space-x-16 lg:pl-56 my-10">
-                                <div class="block w-full ">
+                            <div class="flex flex-row  items-center  lg:pl-36 my-10">
+                                <div class="w-2/5">
                                     <h1 class="sm:text-2xl text-lg font-medium title-font  dark:text-white ">
-                                        Queue List
+                                        Trip History List
                                     </h1>
                                 </div>
-                                <div class="block w-full text-1xl">
-                                    <form action="{{ route('admin.queue') }}" method="post">
+                                <form action="{{ route('admin.trip') }}" method="post">
+                                    <div class=" w-full text-1xl flex flex-row space-x-2 ">
+
                                         @csrf
-                                        <label for="car_type" class="leading-7  dark:text-gray-400 ">Car Type: </label>
-                                        <select id="car_type" name="car_type"
-                                            class="w-2/5  bg-white border-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm p-1 lg:p-2 ">
+                                        <div>
+                                            <label for="car_type" class="leading-7  dark:text-gray-400 ">Car Type: </label>
+                                            <select id="car_type" name="car_type"
+                                                class="w-40 bg-white border-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm p-1 lg:p-2 ">
 
-                                            <option value="">Select</option>
+                                                <option value="">Select</option>
 
-                                            @foreach ($category as $item)
-                                                <option
-                                                    class="bg-white border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm p-1"
-                                                    value="{{ $item->id }}" {{ $item->id == $fillter ? 'selected' : '' }}>
+                                                @foreach ($category as $item)
+                                                    <option
+                                                        class="bg-white border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm p-1 "
+                                                        value="{{ $item->id }}"
+                                                        {{ $item->id == $fillter ? 'selected' : '' }}>
 
-                                                    {{ $item->type }}
+                                                        {{ $item->type }}
 
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        <button id="button"
-                                            class=" text-white bg-indigo-500 border-0 focus:outline-none py-2 px-7 hover:bg-indigo-600 rounded ">Filter</button>
-                                    </form>
-                                </div>
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div>
+
+                                            <label for="car_type" class="leading-7  dark:text-gray-400 ">Date: </label>
+                                            <input type="date" name="date"
+                                                class="w-40  bg-white border-black dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm p-1 lg:p-2 "
+                                                value="{{ $current }}">
+
+                                            <button
+                                                class=" text-white bg-indigo-500 border-0 focus:outline-none py-2 px-7 hover:bg-indigo-600 rounded ">
+                                                Submit</button>
+
+                                        </div>
+
+
+                                    </div>
+                                </form>
                             </div>
-                            <script></script>
-                            <div class="lg:w-4/5 w-full mx-auto overflow-auto text-1xl">
-                                <table class="table-auto w-full text-left whitespace-no-wrap" id="myTable">
+
+                            <div class="flex flex-col w-full mx-auto overflow-auto text-1xl m-">
+                                {{-- {{dd(var_dump($data))}} --}}
+                                {{-- @if (array_sum($data) == 0) --}}
+                                <table class="table-auto w-full text-left whitespace-no-wrap " id="myTable">
                                     <thead>
                                         <tr>
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100 rounded-tl rounded-bl">
-                                                Queue Id</th>
+                                                Sr No.</th>
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100 ">
                                                 Full Name</th>
@@ -58,9 +76,20 @@
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
                                                 Car Number</th>
 
+
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
-                                                Arrive Time</th>
+                                                Location </th>
+                                                <th
+                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
+                                                Payment Mode</th>
+
+                                            <th
+                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
+                                                Amount</th>
+                                            <th
+                                                class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
+                                                Booking Time</th>
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
                                             </th>
@@ -73,9 +102,9 @@
                                         @php
                                             $id = 1;
                                         @endphp
-
-                                        @foreach ($data as $key => $da)
-                                            @if ($da[0]->category_id == $fillter)
+                                        {{-- {{dd(array_sum($data))}} --}}
+                                        @foreach ($data as $key => $item)
+                                            @if ($item[0]->category_id == $fillter)
                                                 <tr>
 
 
@@ -85,48 +114,52 @@
                                                     </td>
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
 
-                                                        {{ $da[0]->driver->firstname }}{{ ' ' . $da[0]->driver->lastname }}
+                                                        {{ $item[0]->driver->firstname }}{{ ' ' . $item[0]->driver->lastname }}
 
                                                     </td>
                                                     <td class="px-4 py-3  td text-gray-900 dark:text-white">
 
-                                                            {{ $da[0]->category->type }}
+                                                        {{ $item[0]->category->type }}
 
                                                     </td>
 
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
 
-                                                            {{ $da[0]->vehicles->vehicle_name }}
+                                                        {{ $item[0]->vehicles->vehicle_name }}
 
                                                     </td>
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
 
-                                                            {{ $da[0]->vehicles->car_number }}
+                                                        {{ $item[0]->vehicles->car_number }}
 
                                                     </td>
 
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
-                                                        @foreach ($drivers as $item)
-                                                            @if ($da[0]->id == $item->relation_id)
-                                                                {{ $item->arrive_time }}
-                                                            @endif
-                                                        @endforeach
+                                                        {{ $drivers[$key]->location }}
                                                     </td>
-                                                    <td class=" text-center">
-                                                        <button
+                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white">
+                                                        {{ $drivers[$key]->payment_mode }}
+                                                    </td>
+                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white">
+                                                        {{ $drivers[$key]->amount }}
+                                                    </td>
+                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white">
+                                                        {{ $drivers[$key]->booking_time }}
+                                                    </td>
+                                                    <td> <button
                                                             class="flex ml-auto td text-white bg-indigo-500 border-0 py-1 px-6 focus:outline-none m-1 hover:bg-indigo-600 rounded "
-                                                            onclick="window.location.href='{{ url('/admin/printedit/' . $da[0]->id) }}';"
-                                                            {{ $da[0]->status == 1 ? '' : 'disabled' }}>Dispatch</button>
+                                                            onclick="window.location.href='{{ url('/admin/tripview' . $item[0]->id) }}';">View</button>
                                                     </td>
-
-                                                </tr>
                                                 @elseif (count($data) == $key + 1)
-                                                <td
-                                                    class="px-4 py-3 td text-gray-900 dark:text-white table-cell col-span-4">
-                                                    No data available
-                                                </td>
-                                        @endif
+                                                    <td
+                                                        class="px-4 py-3 td text-gray-900 dark:text-white table-cell col-span-4">
+                                                        No data available
+                                                    </td>
+                                            @endif
+
+                                            </tr>
                                         @endforeach
+
                                     </tbody>
                                 </table>
                                 <div id="pagination " class="inline-flex items-center -space-x-px my-6 ">
@@ -134,6 +167,12 @@
                                     <span id="currentPage" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"></span>
                                     <button onclick="nextPage()" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
                                 </div>
+                                {{-- @else
+                                    <h1 class="sm:text-2xl text-lg font-medium title-font text-center dark:text-white ">
+                                        No data
+                                    </h1>
+                                @endif --}}
+
                             </div>
 
                         </div>
@@ -184,4 +223,3 @@
         showPage(currentPage);
     </script>
 @endsection
-

@@ -13,7 +13,7 @@
 
                             </div>
                             <div class="flex flex-col w-full mx-auto overflow-auto text-1xl ">
-                                <table class="table-auto w-full text-left whitespace-no-wrap">
+                                <table class="table-auto w-full text-left whitespace-no-wrap" id="myTable">
                                     <thead class="">
                                         <tr>
                                             <th
@@ -128,9 +128,11 @@
 
                                     </tbody>
                                 </table>
-                                <div class="pagination py-10">
-                                    {{ $data->links() }}
-                                  </div>
+                                <div id="pagination " class="inline-flex items-center -space-x-px my-6 ">
+                                    <button onclick="previousPage() " class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+                                    <span id="currentPage" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"></span>
+                                    <button onclick="nextPage()" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+                                </div>
 
                             </div>
 
@@ -143,5 +145,42 @@
 
 @endsection
 @section('script')
+    <script>
+        var table = document.getElementById("myTable");
+        var currentPage = 0;
+        var rowsPerPage = 10;
 
+        function showPage(page) {
+            var startIndex = page * rowsPerPage;
+            var endIndex = startIndex + rowsPerPage;
+            var rows = table.rows;
+
+            for (var i = 1; i < rows.length; i++) {
+                if (i < startIndex || i >= endIndex) {
+                    rows[i].style.display = "none";
+                } else {
+                    rows[i].style.display = "";
+                }
+            }
+
+            document.getElementById("currentPage").textContent =  (currentPage + 1);
+        }
+
+        function previousPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        function nextPage() {
+            var rows = table.rows;
+            if (currentPage < Math.ceil((rows.length - 1) / rowsPerPage) - 1) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        showPage(currentPage);
+    </script>
 @endsection

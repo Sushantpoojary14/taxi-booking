@@ -26,7 +26,7 @@ require __DIR__.'/cache.php';
 // Route::get('/test', );
 Route::get('/test',[QueueController::class, 'test'])->name('test');
 Route::get('/test2',[QueueController::class, 'test2'])->name('test2');
-Route::get('/test3',[QueueController::class, 'test3'])->name('test3');
+Route::get('/code',[QueueController::class, 'code'])->name('code');
 Route::any('/qrcode',[QueueController::class, 'qrcode'])->name('random');
 Route::get('/send',[NotificationController::class, 'sendSmsNotificaition']);
 

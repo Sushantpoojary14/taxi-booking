@@ -29,10 +29,10 @@ class AdminController extends Controller
             ->with('driver')
             ->with('vehicles')
             ->with('category')
-            ->paginate(15);
-            // foreach ($data as $record) {
-            //     dd($record['driver']);
-            // }
+            ->get();
+        // foreach ($data as $record) {
+        //     dd($record['driver']);
+        // }
         // dd($data);
         return View('admin.dashboard', compact('data'));
     }
@@ -92,7 +92,7 @@ class AdminController extends Controller
             ->where('status', 1)
             ->orderBy('arrive_time', 'ASC')
             ->get();
-
+        $data = [];
         foreach ($drivers as $driver) {
 
             $data[] = Relation::query()
@@ -103,7 +103,7 @@ class AdminController extends Controller
                 ->get();
         }
 
-        // dd($data);
+
         return View('admin.queue', compact('data', 'drivers', 'category', 'fillter'));
 
     }
@@ -233,7 +233,7 @@ class AdminController extends Controller
 
             ->update([
                 'status' => $request->status,
-                'active_status'=> 0
+                'active_status' => 0
             ]);
 
         queue::query()
@@ -271,7 +271,9 @@ class AdminController extends Controller
             ->first();
 
         $currentDate = Carbon::now();
-        $currentDate = $currentDate->format('Y-m-d H:i:s');
+        $current = $currentDate->format('Y-m-d H:i:s');
+        $current_time = $currentDate->format('H:i:s');
+        $current_date = $currentDate->format('Y-m-d');
 
         $allowedPayments = ['cash', 'card', 'upi'];
 
@@ -284,11 +286,11 @@ class AdminController extends Controller
 
         ]);
 
-        $total = $request->fair + $request->night_fair ;
+        $total = $request->fair + $request->night_fair;
         $gst = 5 * $total / 100;
-        $total = $total + $gst+ $request->parking_charges;
+        $total = $total + $gst + $request->parking_charges;
 
-        $id = $request->id;
+
 
 
         if ($request->c_id == null) {
@@ -300,10 +302,11 @@ class AdminController extends Controller
                 'amount' => $total,
                 'payment_mode' => $request->payment,
                 // 'phone' => $request->phone,
-                // 'booking_time' => $currentDate,
+                'booking_time' => $current_time,
+                'booking_date' => $current_date,
             ]);
         } else {
-            $customer= Customer::query()
+            $customer = Customer::query()
                 ->where('id', $request->c_id)
                     // ->first()
                 ->update([
@@ -314,7 +317,8 @@ class AdminController extends Controller
                     'amount' => $total,
                     'payment_mode' => $request->payment,
                     // 'phone' => $request->phone,
-                    // 'booking_time' => $currentDate,
+                    'booking_time' => $current_time,
+                    'booking_date' => $current_date,
                 ]);
 
             $customer = Customer::query()
@@ -324,56 +328,54 @@ class AdminController extends Controller
 
         // dd($customer->id);
 
-        return View('admin.printview', compact('data', 'currentDate', 'total', 'customer', 'detail', 'gst', 'id'));
+        return View('admin.printview', compact('data', 'current', 'total', 'customer', 'detail', 'gst'));
     }
 
-    // public function printview(request $request)
-    // {
-    //     dd($request->input);
-    //     $detail = $request->input();
+    public function showtrip(request $request)
+    {
 
-    //     $data = Relation::query()
-    //         ->where('id', $request->id)
-    //         ->with('driver')
-    //         ->with('vehicles')
-    //         ->with('category')
-    //         ->first();
+        $fillter = $request->car_type;
+        if ($fillter == null) {
+            $fillter = 1;
+        }
 
-    //     $currentDate = Carbon::now();
-    //     $currentDate = $currentDate->format('Y-m-d H:i:s');
+        $current = $request->date;
 
-    //     $request->validate([
-    //         'fullname' => ['required', 'string', 'max:255'],
-    //         'location' => ['required', 'string'],
-    //         'fair' => ['required', 'string'],
-    //         'payment' => ['required'],
-    //         'parking_charges' => ['required', 'string'],
+        $currentDate = Carbon::now();
 
-    //     ]);
+        $current_date = $currentDate->format('Y-m-d');
+        // dd($current_date);
+        if ($current == null) {
+            $current = $current_date;
+        }
 
-    //     $total = $request->fair + $request->night_fair;
-    //     $gst = 5 * $total / 100;
-    //     $total = $total + $gst;
+        $category = Category::query()
+            ->get();
 
-    //     $id = $request->id;
-    //     // dd($detail['night_fair']);
+        $drivers = Customer::query()
+            ->where('booking_date', $current)
+            ->get();
 
-
-    //     $customer = Customer::create([
-    //         'fullname' => $request->fullname,
-    //         'location' => $request->location,
-    //         'relation_id' => $request->id,
-
-    //         'amount' => $total,
-    //         'payment_mode' => $request->payment,
-    //         // 'phone' => $request->phone,
-    //         'booking_time' => $currentDate,
+        $data = [];
+        foreach ($drivers as $key =>$driver) {
+            $data[] = Relation::query()
+                ->where('id', $driver->relation_id)
+                ->with('customer')
+                ->with('driver')
+                ->with('vehicles')
+                ->with('category')
+                ->paginate(10);
 
 
-    //     ]);
+        }
+
+        // }
+        // dd($drivers);
+
+        // echo print_r($data[0]->customer, true);
 
 
+        return view('admin.trip', compact('data', 'drivers', 'category', 'fillter', 'current'));
 
-    //     return View('admin.printview', compact('data', 'currentDate', 'total', 'customer', 'detail', 'gst', 'id'));
-    // }
+    }
 }

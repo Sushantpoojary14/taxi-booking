@@ -45,25 +45,32 @@
 
         }
 
-        // var auto_refresh = setInterval(function() {
-        //     window.location.reload();
-        //     }, 100000);
 
         displayTime();
-        // setInterval(displayTime, 1000);
+
         let flag = false;
 
-        function onScanSuccess(qrCodeMessage) {
+        async function onScanSuccess(qrCodeMessage) {
+            const url =
+            "http://localhost:8000/code";
+            // Storing response
+            const response = await fetch(url);
+
+            // Storing data in form of JSON
+            var data = await response.json();
+
+            console.log(data.qrcode);
             console.log(qrCodeMessage)
-            console.log(@json($code->qrcode))
-            if (qrCodeMessage == @json($code->qrcode)) {
+            // console.log(@json($code->qrcode))
+            if (qrCodeMessage == data.qrcode) {
+                console.log('inside')
                 if (!flag) {
 
                     document.getElementById("myForm").submit();
                     flag = true;
                 } else {
                     flag = false;
-                    // document.getElementById('result').innerHTML = '<span class="result">' + "Not match" + '</span>';
+
 
                 }
 
@@ -71,9 +78,12 @@
             }
 
         }
+        function code(){
+
+        }
 
         function onScanError(errorMessage) {
-            //handle scan error
+
         }
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {

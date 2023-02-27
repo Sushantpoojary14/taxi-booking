@@ -196,7 +196,7 @@ class DriverController extends Controller
             ->where('driver_id', $request->id)
             ->first()
         ;
-        // dd($user );
+
         queue::query()
             ->where('relation_id', $user->id)
             ->update([
