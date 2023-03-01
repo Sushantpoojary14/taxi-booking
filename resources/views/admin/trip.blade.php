@@ -65,9 +65,9 @@
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100 ">
                                                 Full Name</th>
-                                            <th
+                                            {{-- <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
-                                                Car Type</th>
+                                                Car Type</th> --}}
 
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
@@ -117,11 +117,11 @@
                                                         {{ $item[0]->driver->firstname }}{{ ' ' . $item[0]->driver->lastname }}
 
                                                     </td>
-                                                    <td class="px-4 py-3  td text-gray-900 dark:text-white">
+                                                    {{-- <td class="px-4 py-3  td text-gray-900 dark:text-white">
 
                                                         {{ $item[0]->category->type }}
 
-                                                    </td>
+                                                    </td> --}}
 
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
 

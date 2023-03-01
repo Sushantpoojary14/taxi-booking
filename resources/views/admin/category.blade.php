@@ -24,7 +24,7 @@
 
                                                         <x-text-input type="text" id="firstname" name="firstname"
                                                             class=""
-                                                            value="{{ $data->driver->firstname }}" />
+                                                            value="{{ $data->driver[0]->firstname }}" />
 
                                                 </div>
                                                 <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
@@ -35,7 +35,7 @@
 
                                                         <x-text-input type="text" id="lastname" name="lastname"
                                                             class=""
-                                                            value="{{ $data->driver->lastname }}" />
+                                                            value="{{ $data->driver[0]->lastname }}" />
 
                                                 </div>
                                                 <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
@@ -45,7 +45,7 @@
                                                     <label for="email" class="leading-7  text-gray-400">Email</label>
                                                       <x-text-input type="email" id="email" name="email"
                                                             class=""
-                                                            value="{{ $data->driver->email }}" />
+                                                            value="{{ $data->driver[0]->email }}" />
 
                                                 </div>
                                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -56,7 +56,7 @@
 
                                                         <x-text-input type="text" id="phone" name="phone"
                                                             class=""
-                                                            value="{{ $data->driver->phone }}" />
+                                                            value="{{ $data->driver[0]->phone }}" />
 
                                                 </div>
                                                 <x-input-error :messages="$errors->get('phone')" class="mt-2" />
@@ -73,7 +73,7 @@
                                                             <option
                                                                 class="bg-white border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm p-4"
                                                                 value="{{ $item->type }} "
-                                                                {{ $data->category->type == $item->type ? 'selected' : '' }}>
+                                                                {{ $data->category[0]->type == $item->type ? 'selected' : '' }}>
 
                                                                 {{ $item->type }}
 
@@ -89,7 +89,7 @@
 
                                                         <x-text-input type="text" id="model" name="model"
                                                             class=""
-                                                            value="{{ $data->vehicles->vehicle_name }}" />
+                                                            value="{{ $data->vehicles[0]->vehicle_name }}" />
 
                                                 </div>
                                                 <x-input-error :messages="$errors->get('model')" class="mt-2" />
@@ -101,7 +101,7 @@
 
                                                         <x-text-input type="text" id="car_number" name="car_number"
                                                             class=""
-                                                            value="{{ $data->vehicles->car_number }}" />
+                                                            value="{{ $data->vehicles[0]->car_number }}" />
 
                                                 </div>
                                                 <x-input-error :messages="$errors->get('car_number')" class="mt-2" />
@@ -112,7 +112,7 @@
 
                                                         <x-text-input type="text" id="color" name="color"
                                                             class=""
-                                                            value="{{ $data->vehicles->color }}" />
+                                                            value="{{ $data->vehicles[0]->color }}" />
 
                                                 </div>
                                                 <x-input-error :messages="$errors->get('color')" class="mt-2" />

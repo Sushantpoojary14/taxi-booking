@@ -47,9 +47,9 @@
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100 ">
                                                 Full Name</th>
-                                            <th
+                                            {{-- <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
-                                                Car Type</th>
+                                                Car Type</th> --}}
 
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
@@ -83,29 +83,29 @@
 
                                                         {{ $id++ }}
                                                     </td>
-                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white">
+                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white" id="name">
 
                                                         {{ $da[0]->driver->firstname }}{{ ' ' . $da[0]->driver->lastname }}
 
                                                     </td>
-                                                    <td class="px-4 py-3  td text-gray-900 dark:text-white">
+                                                    {{-- <td class="px-4 py-3  td text-gray-900 dark:text-white">
 
                                                             {{ $da[0]->category->type }}
 
-                                                    </td>
+                                                    </td> --}}
 
-                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white">
+                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white" id="vehicle_name">
 
                                                             {{ $da[0]->vehicles->vehicle_name }}
 
                                                     </td>
-                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white">
+                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white" id="car_number">
 
                                                             {{ $da[0]->vehicles->car_number }}
 
                                                     </td>
 
-                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white">
+                                                    <td class="px-4 py-3 td text-gray-900 dark:text-white" id="time">
                                                         @foreach ($drivers as $item)
                                                             @if ($da[0]->id == $item->relation_id)
                                                                 {{ $item->arrive_time }}
@@ -145,6 +145,24 @@
 @endsection
 
 @section('script')
+    <script>
+        data()
+       async function data(){
+            const url =
+            "http://localhost:8000/api/queuedata";
+            // Storing response
+            const response = await fetch(url);
+
+            // Storing data in form of JSON
+            var data = await response.json();
+            let details = data[0]
+            let queuedata = data[1]
+            details.forEach(element => {
+                document.getElementById("name").textContent = queuedata[0].driver.name
+            });
+        }
+
+    </script>
     <script>
         var table = document.getElementById("myTable");
         var currentPage = 0;

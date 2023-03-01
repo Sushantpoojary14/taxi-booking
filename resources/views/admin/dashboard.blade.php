@@ -33,9 +33,9 @@
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
                                                 Color</th>
-                                            <th
+                                            {{-- <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
-                                                Status</th>
+                                                Status</th> --}}
 
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900   bg-gray-100">
@@ -93,11 +93,11 @@
                                                 </td>
 
 
-                                                <td class="px-4 py-3 text-gray-900 {{ $item->active_status == 1 ? 'text-green-500' : 'text-red-500' }}">
+                                                {{-- <td class="px-4 py-3 text-gray-900 {{ $item->active_status == 1 ? 'text-green-500' : 'text-red-500' }}">
 
                                                     {{ $item->active_status == 1 ? 'Online' : 'offline' }}
 
-                                                </td>
+                                                </td> --}}
 
                                                 <td class=" text-center">
 

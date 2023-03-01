@@ -107,7 +107,28 @@ class AdminController extends Controller
         return View('admin.queue', compact('data', 'drivers', 'category', 'fillter'));
 
     }
+    public function showapi (request $request)
+    {
 
+        $drivers = queue::query()
+            ->where('status', 1)
+            ->orderBy('arrive_time', 'ASC')
+            ->get();
+        $data = [];
+        foreach ($drivers as $driver) {
+
+            $data[] = Relation::query()
+                ->where('id', $driver->relation_id)
+                ->with('driver')
+                ->with('vehicles')
+                ->with('category')
+                ->get();
+        }
+
+        // dd($data);
+        return json_encode([$data,$drivers]);
+
+    }
 
     public function edit(Item $item, $id)
     {
