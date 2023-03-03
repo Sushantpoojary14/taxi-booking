@@ -38,7 +38,7 @@
     </div>
     <script type="text/javascript">
         function displayTime() {
-            var currentTime = new Date().toLocaleString();
+            let currentTime = new Date().toLocaleString();
             document.getElementById("time").value = currentTime;
 
         }
@@ -55,7 +55,7 @@
             const response = await fetch(url);
 
             // Storing data in form of JSON
-            var data = await response.json();
+            let data = await response.json();
 
             console.log(data.qrcode);
             console.log(qrCodeMessage)
@@ -81,7 +81,7 @@
         }
 
         function onScanError(errorMessage) {
-            
+
         }
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {

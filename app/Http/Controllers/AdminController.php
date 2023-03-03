@@ -109,11 +109,13 @@ class AdminController extends Controller
     }
     public function showapi (request $request)
     {
-
+        $category = Category::query()
+            ->get();
         $drivers = queue::query()
             ->where('status', 1)
             ->orderBy('arrive_time', 'ASC')
             ->get();
+
         $data = [];
         foreach ($drivers as $driver) {
 
@@ -126,7 +128,7 @@ class AdminController extends Controller
         }
 
         // dd($data);
-        return json_encode([$data,$drivers]);
+        return json_encode([$data,$drivers,$category]);
 
     }
 

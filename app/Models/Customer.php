@@ -14,6 +14,9 @@ class Customer extends Model
     protected $fillable = [
         'fullname',
         'location',
+        'coordinate',
+        'distance',
+        'time_taken',
         'phone',
         'amount',
         'relation_id',

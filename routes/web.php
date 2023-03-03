@@ -36,6 +36,8 @@ Route::get('/contact-us', [CustomerController::class, 'contact'])->name('contact
 Route::post('/contact-us', [CustomerController::class, 'contactusform'])->name('contact.store');
 Route::get('/about-us', [CustomerController::class, 'about'])->name('about');
 
+Route::post('/billview', [CustomerController::class, 'billview'])->name('billview');
+Route::post('/payment', [CustomerController::class, 'payment'])->name('payment');
 
 Route::get('/dashboard',[DriverController::class , 'dashboard'])
 ->middleware(['auth', 'verified','driverstatus'])->name('dashboard');
