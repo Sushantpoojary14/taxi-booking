@@ -192,7 +192,7 @@ class CustomerController extends Controller
                 'booking_time' => $current_time,
                 'booking_date' => $current_date
             ]);
-
+            
         return redirect('/')->with('success', 'success!');
         // return view('customer.contact');
     }
