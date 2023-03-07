@@ -207,7 +207,6 @@
             }
 
 
-
             newdetails.forEach((element, index) => {
                 let tr = document.createElement("tr");
                 let td0 = document.createElement("td");
