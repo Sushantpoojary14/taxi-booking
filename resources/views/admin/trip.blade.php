@@ -90,9 +90,9 @@
                                             <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
                                                 Booking Time</th>
-                                            <th
+                                            {{-- <th
                                                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900  bg-gray-100">
-                                            </th>
+                                            </th> --}}
 
                                         </tr>
                                     </thead>
@@ -102,9 +102,10 @@
                                         @php
                                             $id = 1;
                                         @endphp
-                                        {{-- {{dd(array_sum($data))}} --}}
+                                        {{-- {{dd($data)}} --}}
                                         @foreach ($data as $key => $item)
-                                            @if ($item[0]->category_id == $fillter)
+
+                                            @if ($item->category_id == $fillter)
                                                 <tr>
 
 
@@ -114,7 +115,7 @@
                                                     </td>
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
 
-                                                        {{ $item[0]->driver->firstname }}{{ ' ' . $item[0]->driver->lastname }}
+                                                        {{ $item->driver->firstname }}{{ ' ' . $item->driver->lastname }}
 
                                                     </td>
                                                     {{-- <td class="px-4 py-3  td text-gray-900 dark:text-white">
@@ -125,12 +126,12 @@
 
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
 
-                                                        {{ $item[0]->vehicles->vehicle_name }}
+                                                        {{ $item->vehicles->vehicle_name }}
 
                                                     </td>
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
 
-                                                        {{ $item[0]->vehicles->car_number }}
+                                                        {{ $item->vehicles->car_number }}
 
                                                     </td>
 
@@ -146,15 +147,15 @@
                                                     <td class="px-4 py-3 td text-gray-900 dark:text-white">
                                                         {{ $drivers[$key]->booking_time }}
                                                     </td>
-                                                    <td> <button
+                                                    {{-- <td> <button
                                                             class="flex ml-auto td text-white bg-indigo-500 border-0 py-1 px-6 focus:outline-none m-1 hover:bg-indigo-600 rounded "
                                                             onclick="window.location.href='{{ url('/admin/tripview' . $item[0]->id) }}';">View</button>
-                                                    </td>
-                                                @elseif (count($data) == $key + 1)
+                                                    </td> --}}
+                                                {{-- @elseif (count($data) == $key + 1)
                                                     <td
                                                         class="px-4 py-3 td text-gray-900 dark:text-white table-cell col-span-4">
                                                         No data available
-                                                    </td>
+                                                    </td> --}}
                                             @endif
 
                                             </tr>

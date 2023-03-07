@@ -20,19 +20,13 @@
                                                     </h1>
 
                                                     @foreach ($drivers as $relation)
-                                                    @if($relation->relation_id == $user->id)
-                                                     <button id="button"
-                                                      class=" text-white  bg-indigo-500 border-0 focus:outline-none  px-4 hover:bg-indigo-600 rounded "
-                                                      onclick="window.location.href='{{ url('/exit') }}';"
-
-
-                                                      {{$relation->status==1?'':'hidden'}}
-
-
-
-                                                  >Exit</button>
-                                                    @endif
-                                                  @endforeach
+                                                        @if ($relation->relation_id == $user->id)
+                                                            <button id="button"
+                                                                class=" text-white  bg-indigo-500 border-0 focus:outline-none  px-4 hover:bg-indigo-600 rounded "
+                                                                onclick="window.location.href='{{ url('/exit') }}';"
+                                                                {{ $relation->status == 1 ? '' : 'hidden' }}>Exit</button>
+                                                        @endif
+                                                    @endforeach
 
                                                 </div>
 
@@ -64,29 +58,38 @@
                                                         @php
                                                             $id = 1;
                                                         @endphp
+                                                        {{-- {{dd($data)}} --}}
+                                                        @if ($data==null)
 
-                                                        @foreach ($data as $relation)
-                                                            @foreach ($relation as $item)
+                                                        <td class="px-4 py-3 text-gray-900 dark:text-white">
+                                                            No data available
+                                                        </td>
+                                                        @else
+                                                            @foreach ($data as $relation)
+                                                                {{-- @foreach ($relation as $item) --}}
+
                                                                 <tr>
                                                                     <td class="px-4 py-3 text-gray-900 dark:text-white">
                                                                         {{ $id++ }}
                                                                     </td>
                                                                     <td class="px-4 py-3 text-gray-900 dark:text-white">
-                                                                        {{ $item->driver->firstname.' '.$item->driver->lastname }}
+                                                                        {{ $relation->driver->firstname . ' ' . $relation->driver->lastname }}
                                                                     </td>
-                                                                   <td class="px-4 py-3 text-gray-900 dark:text-white">
-                                                                        {{ $item->category->type }}
+                                                                    <td class="px-4 py-3 text-gray-900 dark:text-white">
+                                                                        {{ $relation->category->type }}
                                                                     </td>
 
                                                                     <td class="px-4 py-3 text-gray-900 dark:text-white">
-                                                                        {{ $item->vehicles->vehicle_name }}
+                                                                        {{ $relation->vehicles->vehicle_name }}
                                                                     </td>
                                                                     <td class="px-4 py-3 text-gray-900 dark:text-white">
-                                                                        {{ $item->vehicles->car_number }}
+                                                                        {{ $relation->vehicles->car_number }}
                                                                     </td>
                                                                 </tr>
+
+                                                                {{-- @endforeach --}}
                                                             @endforeach
-                                                        @endforeach
+                                                        @endif
                                                     </tbody>
                                                 </table>
                                             </div>

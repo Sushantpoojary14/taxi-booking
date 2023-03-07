@@ -80,37 +80,38 @@ class AdminController extends Controller
 
     public function show(request $request)
     {
-        $fillter = $request->car_type;
-        if ($fillter == null) {
-            $fillter = 1;
-        }
+        // $fillter = $request->car_type;
+        // if ($fillter == null) {
+        //     $fillter = 1;
+        // }
 
-        $category = Category::query()
-            ->get();
+        // $category = Category::query()
+        //     ->get();
 
-        $drivers = queue::query()
-            ->where('status', 1)
-            ->orderBy('arrive_time', 'ASC')
-            ->get();
-        $data = [];
-        foreach ($drivers as $driver) {
+        // $drivers = queue::query()
+        //     ->where('status', 1)
+        //     ->orderBy('arrive_time', 'ASC')
+        //     ->get();
+        // $data = [];
+        // foreach ($drivers as $driver) {
 
-            $data[] = Relation::query()
-                ->where('id', $driver->relation_id)
-                ->with('driver')
-                ->with('vehicles')
-                ->with('category')
-                ->get();
-        }
+        //     $data[] = Relation::query()
+        //         ->where('id', $driver->relation_id)
+        //         ->with('driver')
+        //         ->with('vehicles')
+        //         ->with('category')
+        //         ->get();
+        // }
 
 
-        return View('admin.queue', compact('data', 'drivers', 'category', 'fillter'));
+        return View('admin.queue');
 
     }
     public function showapi (request $request)
     {
         $category = Category::query()
             ->get();
+
         $drivers = queue::query()
             ->where('status', 1)
             ->orderBy('arrive_time', 'ASC')
@@ -124,8 +125,9 @@ class AdminController extends Controller
                 ->with('driver')
                 ->with('vehicles')
                 ->with('category')
-                ->get();
+                ->first();
         }
+
 
         // dd($data);
         return json_encode([$data,$drivers,$category]);
@@ -387,7 +389,7 @@ class AdminController extends Controller
                 ->with('driver')
                 ->with('vehicles')
                 ->with('category')
-                ->paginate(10);
+                ->first();
 
 
         }

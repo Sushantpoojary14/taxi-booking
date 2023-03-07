@@ -6,7 +6,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\QueueController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\contactus;
+use Illuminate\Contracts\Mail\Mailable;
 use App\Http\Controllers\NotificationController;
+use Symfony\Component\Mailer\Messenger\SendEmailMessage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +34,7 @@ Route::get('/code',[QueueController::class, 'code'])->name('code');
 Route::any('/qrcode',[QueueController::class, 'qrcode'])->name('random');
 Route::get('/send',[NotificationController::class, 'sendSmsNotificaition']);
 
-Route::get('/', [CustomerController::class, 'index']);
+Route::get('/', [CustomerController::class, 'index'])->name('home');
 Route::get('/home', [CustomerController::class, 'index']);
 Route::get('/contact-us', [CustomerController::class, 'contact'])->name('contact');
 Route::post('/contact-us', [CustomerController::class, 'contactusform'])->name('contact.store');
@@ -38,6 +42,16 @@ Route::get('/about-us', [CustomerController::class, 'about'])->name('about');
 
 Route::post('/billview', [CustomerController::class, 'billview'])->name('billview');
 Route::post('/payment', [CustomerController::class, 'payment'])->name('payment');
+Route::get('send-email', function(){
+    // $mailData = [
+    //     "name" => "Test NAME",
+    //     "dob" => "12/12/1990"
+    // ];
+
+    Mail::to("spoojari694@gmail.com")->send(new contactus());
+
+    return "Mail Sent Successfully!";
+});
 
 Route::get('/dashboard',[DriverController::class , 'dashboard'])
 ->middleware(['auth', 'verified','driverstatus'])->name('dashboard');

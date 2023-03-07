@@ -50,20 +50,21 @@
 
         }
     </style>
+
 @endsection
 @section('content')
     <div class="h-96">
-        <form action="{{route('billview')}}" method="post" id="dataform">
-        @csrf
-        <input type="hidden" name="customer" value="{{json_encode($customer)}}">
-        <input type="hidden" name="transaction_details" value="" id="transaction_details">
+        <form action="{{ route('billview') }}" method="post" id="dataform">
+            @csrf
+            <input type="hidden" name="customer" value="{{ json_encode($customer) }}">
+            <input type="hidden" name="transaction_details" value="" id="transaction_details">
         </form>
     </div>
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content">
-            <a class="close" href="http://localhost:8000/">&times;</a>
+        <div class="modal-content" id="modal-content">
+            <a class="close" href="{{route{'home'}}}">&times;</a>
             <div class="h-full bg-gray-100 p-8 rounded mb-2">
                 <p class="text-center font-medium">Total Amount To Pay:</p>
 
@@ -76,10 +77,19 @@
         </div>
 
     </div>
+    <script>
+        function preventBack() {
+            window.history.forward();
+
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function() {
+            null
+        };
+    </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <script>
-
         let options = {
             "key": "rzp_test_Pd1uy6stEdFpMs",
             "amount": "{{ $payment_details->amount }}",
@@ -88,14 +98,14 @@
             "description": "Test Transaction",
             "image": "https://example.com/your_logo",
             // "order_id": "order_9A33XWu170gUtm",
-            "handler": function(response){
-                    document.getElementById('transaction_details').value=JSON.stringify(response)
-                    document.getElementById('dataform').submit()
-                    document.getElementById('myModal').style.display="none"
-           }
-            ,
+            "handler": function(response) {
+                // console.log(response);
+                document.getElementById('transaction_details').value = JSON.stringify(response)
+                document.getElementById('dataform').submit()
+                document.getElementById('modal-content').style.display = "none"
+            },
             "prefill": {
-                "name": "{{ $payment_details->notes->name }}", //your customer's name
+                "name": "{{ $payment_details->notes->name }}",
                 "email": "",
                 "contact": "{{ $payment_details->notes->phone }}"
             },
@@ -104,12 +114,24 @@
             },
             "theme": {
                 "color": "#3399cc"
-            }
+            },
+
+
         };
-        var rzp1 = new Razorpay(options);
+        let rzp1 = new Razorpay(options);
         document.getElementById('rzp-button1').onclick = function(e) {
             rzp1.open();
             e.preventDefault();
         }
+        rzp1.on('payment.failed', function(response) {
+            console.log(response);
+            // alert(response.error.code);
+            // alert(response.error.description);
+            // alert(response.error.source);
+            // alert(response.error.step);
+            alert(response.error.reason);
+            // alert(response.error.metadata.order_id);
+            // alert(response.error.metadata.payment_id);
+        })
     </script>
 @endsection

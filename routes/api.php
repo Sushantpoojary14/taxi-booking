@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/queuedata',[AdminController::class, 'showapi']);
 Route::get('/get_category', [CustomerController::class, 'category']);
+Route::get('/availability', [CustomerController::class, 'availability']);

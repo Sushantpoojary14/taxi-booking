@@ -19,23 +19,6 @@ const geocoder = new google.maps.Geocoder();
 myForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // let name = document.forms["my-form"]["c_name"].value;
-    // let phone = document.forms["my-form"]["c_phone"].value;
-    // let vehicle = document.forms["my-form"]["c_vehicle"].value;
-    // let to = document.forms["my-form"]["to"].value;
-    // if (name == "") {
-    //     document.getElementById('err_name').style.display = "block";
-
-    //   } else if (phone == "") {
-    //     document.getElementById('err_phone').style.display = "block";
-
-    //   } else if (vehicle == "") {
-    //     document.getElementById('err_vehicle').style.display = "block";
-
-    //   } else if (to == "") {
-    //     document.getElementById('err_to').style.display = "block";
-    //     return false;
-    //   }
 
     calc();
 });
@@ -50,21 +33,43 @@ async function get_category() {
     return data;
 }
 
+// function availability(params) {
+//     const url = 'http://localhost:8000/api/availability';
+//     const data =
+//     {
+//         category:   document.getElementById("c_vehicle").value,
+
+//     };
+//     const options = {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(data)
+//     };
+
+//     fetch(url, options)
+//       .then(response => response.json())
+//       .then(data => console.log(data))
+//       .catch(error => console.error(error));
+
+// }
+
 function calc() {
+
+
+
     //create request
     let request = {
         origin: defaultLocation,
         destination: document.getElementById("c_to").value,
-        travelMode: google.maps.TravelMode.DRIVING, //WALKING, BYCYCLING, TRANSIT
+        travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC,
     };
 
-    //pass the request to the route method
+
     directionsService.route(request, async function (result, status) {
-        // console.log(result);
+
         if (status == google.maps.DirectionsStatus.OK) {
-            //Get distance and time
-            document.getElementById("err_location").style.display = "none";
+              document.getElementById("err_location").style.display = "none";
 
             document.getElementById("to_loaction").value =
                 document.getElementById("c_to").value;

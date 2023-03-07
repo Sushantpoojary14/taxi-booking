@@ -149,80 +149,110 @@
 
 @section('script')
     <script>
-        data()
+        data().then(response => {
+
+        }).catch(error => {
+            console.log(error);
+        });
         category()
 
         setInterval(() => {
 
-            data()
+            data().then(response => {
+
+        }).catch(error => {
+            console.log(error);
+        });
 
         }, 5000);
 
         async function data(e) {
             // e.preventDefault()
-            console.log('called');
+            let table = document.getElementById("myTable")
+            const tbody = document.getElementById('tbody');
             let car_type = document.getElementById("car_type").value
             if (!(car_type)) {
                 car_type = 1
             }
+
             const url =
-                "http://localhost:8000/api/queuedata";
+                "{{ url('api/queuedata') }}";
             // Storing response
             const response = await fetch(url);
 
             // Storing data in form of JSON
             var data = await response.json();
+
+
+
             let details = data[0]
             let queuedata = data[1]
 
             let number = 1
 
-            let table = document.getElementById("myTable")
-            const tbody = document.getElementById('tbody');
+
 
             // Clear the content of each td element
             tbody.innerHTML = '';
-            details = details.filter(element => element[0].category_id == car_type)
+
+            let newdetails = details.filter(element => element.category_id == car_type)
+            if (newdetails.length===0) {
+                let tr = document.createElement("tr");
+               let td = document.createElement("td");
+                td.colSpan = 2
+                td.style.margin="auto"
+                td.textContent = "No data available"
+                tr.appendChild(td);
+                tbody.appendChild(tr);
+            }
 
 
 
-                details.forEach((element, index) => {
-                    let tr = document.createElement("tr");
-                    let td0 = document.createElement("td");
-                    let td1 = document.createElement("td");
-                    let td2 = document.createElement("td");
-                    let td3 = document.createElement("td");
-                    let td4 = document.createElement("td");
-                    let td5 = document.createElement("td");
+            newdetails.forEach((element, index) => {
+                let tr = document.createElement("tr");
+                let td0 = document.createElement("td");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                let td3 = document.createElement("td");
+                let td4 = document.createElement("td");
+                let td5 = document.createElement("td");
+                let newqueuedata = queuedata.filter(element2 => element.id == element2.relation_id)
+                //  if(queuedata[index].relation_id==element[0].id)
+                // {
 
-                    td0.textContent = number++
-                    td1.textContent = element[0].driver.firstname + " " + element[0].driver.lastname
-                    td2.textContent = element[0].vehicles.vehicle_name
-                    td3.textContent = element[0].vehicles.car_number
-                    td4.textContent = queuedata[index].arrive_time
-                    td5.innerHTML = `
-                <button class="flex ml-auto td text-white bg-indigo-500 border-0 py-1 px-6 focus:outline-none m-1 hover:bg-indigo-600 rounded" onclick="window.location.href='http://localhost:8000/admin/printedit/ , ${element[0].id})}}';">
+                td0.textContent = number++
+                td1.textContent = element.driver.firstname + " " + element.driver.lastname
+                td2.textContent = element.vehicles.vehicle_name
+                td3.textContent = element.vehicles.car_number
+
+                td4.textContent = newqueuedata[0].arrive_time
+
+                td5.innerHTML = `
+                <button class="flex ml-auto td text-white bg-indigo-500 border-0 py-1 px-6 focus:outline-none m-1 hover:bg-indigo-600 rounded" onclick="window.location.href='{{ url('admin/printedit/${element.id}') }}';">
                      Dispatch
                  </button>
                         `;
 
-                    tr.appendChild(td0);
-                    tr.appendChild(td1);
-                    tr.appendChild(td2);
-                    tr.appendChild(td3);
-                    tr.appendChild(td4);
-                    tr.appendChild(td5);
-                    tbody.appendChild(tr);
+                tr.appendChild(td0);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tbody.appendChild(tr);
 
-                })
-            }
+                // }
+
+            })
+        }
 
 
 
         async function category() {
             let select = document.getElementById("car_type")
+
             const url =
-                "http://localhost:8000/api/queuedata";
+                "{{ url('api/queuedata') }}";
             // Storing response
             const response = await fetch(url);
             const data = await response.json();
@@ -234,7 +264,12 @@
                 option.innerHTML = element.type
                 option.value = element.id
                 select.appendChild(option)
+                if(element.id == 1){
+                    option.selected = "true"
+                }
             });
+
+
         }
     </script>
     <script>

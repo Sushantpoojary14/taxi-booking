@@ -36,19 +36,23 @@ class DriverController extends Controller
             ->where('status', 1)
             ->orderBy('arrive_time', 'ASC')
             ->get();
-
+        $data = null;
         foreach ($drivers as $driver) {
 
-            $data[] = Relation::query()
+           $temp  = Relation::query()
                 ->where('id', $driver->relation_id)
                 ->where('category_id', $user->category_id)
                 ->with('driver')
                 ->with('vehicles')
                 ->with('category')
-                ->get();
+                ->first();
+                if($temp!=null){
+                    $data[] = $temp;
+                }
 
         }
 
+        // if()
 
 
         // dd($data);

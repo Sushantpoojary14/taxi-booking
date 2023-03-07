@@ -109,7 +109,7 @@
                                                 </div>
                                                 <x-input-error :messages="$errors->get('payment')" class="mt-2" />
                                             </div>
-                                            <div class="p-2 w-2/4">
+                                            {{-- <div class="p-2 w-2/4">
                                                 <div class="relative">
                                                     <label for="parking_charges"
                                                         class="leading-7  text-gray-400 my-2">Parking Charges</label>
@@ -120,7 +120,7 @@
 
                                                 </div>
                                                 <x-input-error :messages="$errors->get('parking_charges')" class="mt-2" />
-                                            </div>
+                                            </div> --}}
 
 
 

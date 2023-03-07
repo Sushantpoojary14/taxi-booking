@@ -74,7 +74,7 @@ Route::group(['middleware'=>['auth:admin'],'prefix'=>'admin','as'=>'admin.'],fun
     Route::get('/destroy/{id}',[AdminController::class, 'destroy'])->name('destroy');
 
     // Route::post('/showqueue',[AdminController::class, 'showqueue'])->name('showqueue');
-    Route::any('/queue',[AdminController::class, 'show'])->name('queue');
+    Route::get('/queue',[AdminController::class, 'show'])->name('queue');
     Route::get('/dispatch/{id}',[AdminController::class, 'queuedispatch'])->name('dispatch');
     Route::post('/status/{id}',[AdminController::class, 'status'])->name('status');
     Route::any('/printedit/{id}',[AdminController::class, 'printedit'])->name('printedit');
