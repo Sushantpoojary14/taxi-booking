@@ -25,7 +25,7 @@ class QueueController extends Controller
                 'content-type' => 'application/json',
             ],
         ]);
-
+//helll
         echo $response->getBody();
         $code = null;
         return view('test2', compact('code'));
