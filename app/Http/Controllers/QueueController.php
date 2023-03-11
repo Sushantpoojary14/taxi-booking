@@ -18,7 +18,7 @@ class QueueController extends Controller
         $client = new \GuzzleHttp\Client();
 
         $response = $client->request('POST', 'https://control.msg91.com/api/v5/flow/', [
-            'body' => '{"template_id":"6406d54ad6fc052a053a3c52","sender":"msgind","short_url":"1","mobiles":"918805778742","VAR1":"hello","VAR2":"VALUE 2"}',
+            'body' => '{"template_id":"640b271cd6fc052d317ae6b2","sender":"aUtoFu","short_url":"1","mobiles":"918805778742","VAR1":"hello","VAR2":"VALUE 2"}',
             'headers' => [
                 'Authkey' => '391731AO32MxYY6401992cP1',
                 'accept' => 'application/json',
