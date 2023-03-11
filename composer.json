@@ -15,10 +15,11 @@
         "pestphp/pest": "^1.16",
         "pestphp/pest-plugin-laravel": "^1.1",
         "razorpay/razorpay": "2.*",
-        "renatomarinho/laravel-page-speed": "*",
+        "renatomarinho/laravel-page-speed": "^2.1",
         "vonage/client": "^4.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.8",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
