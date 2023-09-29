@@ -1,0 +1,35 @@
+d[03-Feb-2023 07:42:53 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:42:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php(20): require_once()
+#1 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:42:55 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:42:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php(20): require_once()
+#1 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:43:08 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[03-Feb-2023 07:43:08 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php:34
+Stack trace:
+#0 /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php(21): require_once()
+#1 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/public/index.php on line 34
+[31-Mar-2023 12:10:50 UTC] PHP Warning:  require(/home/dnr7jbqgyb9e/public_html/fleetmgmt/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php on line 34
+[31-Mar-2023 12:10:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dnr7jbqgyb9e/public_html/fleetmgmt/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/dnr7jbqgyb9e/public_html/fleetmgmt/index.php on line 34
+[25-Apr-2023 18:28:36 Asia/Kolkata] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/dnr7jbqgyb9e/public_html/fleetmgmt/app/Models/Driver.php on line 4
+[25-Apr-2023 18:29:06 Asia/Kolkata] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/dnr7jbqgyb9e/public_html/fleetmgmt/app/Models/Driver.php on line 4
+[08-May-2023 11:36:59 Asia/Kolkata] PHP Fatal error:  Cannot redeclare encrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:434) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/storage/framework/views/c66580880528c6d191afc04d919e7b0b946489f2.php on line 8
+[08-May-2023 11:38:09 Asia/Kolkata] PHP Fatal error:  Cannot redeclare encrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:434) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/storage/framework/views/c66580880528c6d191afc04d919e7b0b946489f2.php on line 8
+[08-May-2023 11:38:25 Asia/Kolkata] PHP Fatal error:  Cannot redeclare encrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:434) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/storage/framework/views/c66580880528c6d191afc04d919e7b0b946489f2.php on line 8
+[08-May-2023 11:38:52 Asia/Kolkata] PHP Fatal error:  Cannot redeclare encrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:434) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/storage/framework/views/c66580880528c6d191afc04d919e7b0b946489f2.php on line 8
+[08-May-2023 11:39:05 Asia/Kolkata] PHP Fatal error:  Cannot redeclare encrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:434) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/storage/framework/views/c66580880528c6d191afc04d919e7b0b946489f2.php on line 8
+[08-May-2023 11:42:40 Asia/Kolkata] PHP Fatal error:  Cannot redeclare decrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:373) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/storage/framework/views/c66580880528c6d191afc04d919e7b0b946489f2.php on line 22
+[08-May-2023 11:43:11 Asia/Kolkata] PHP Fatal error:  Cannot redeclare decrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:373) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/storage/framework/views/c66580880528c6d191afc04d919e7b0b946489f2.php on line 22
+[09-May-2023 14:36:18 Asia/Kolkata] PHP Fatal error:  Cannot redeclare encrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:434) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/storage/framework/views/c66580880528c6d191afc04d919e7b0b946489f2.php on line 8
+[09-May-2023 14:58:39 Asia/Kolkata] PHP Fatal error:  Cannot redeclare encrypt() (previously declared in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:434) in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/app/Http/Controllers/Crypto.php on line 8
+[10-May-2023 12:56:10 Asia/Kolkata] PHP Fatal error:  Cannot use [] for reading in /home/dnr7jbqgyb9e/public_html/yohtaxi.com/app/Http/Controllers/CustomerController.php on line 297
