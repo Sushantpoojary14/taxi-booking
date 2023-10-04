@@ -7,9 +7,9 @@
     <section class="text-indigo-900 body-font relative mx-5  my-32 lg:my-60 md:my-60">
         <div class=" bg-gray-50 rounded-lg p-8 flex flex-col w-full m-auto ">
             <div class="flex flex-col text-center w-full my-5">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-indigo-900 ">Welcome to AFTSPL​</h1>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-indigo-900 ">Not Available​</h1>
             </div>
-            <div class="flex flex-wrap -m-2 text-lg">
+            {{-- <div class="flex flex-wrap -m-2 text-lg">
                 <p>The AFTSPL group is a strategic, influential and credible leader in Fleet owner & Car Rental Solutions, with an extensive network across India.
                     Now ventured into development of Intelligent Transport Systems. This includes GPS tracking solutions and IOT, Command and Control Centre, E-challan, GIS Business Solutions & e-vehicles.</p>
 
@@ -22,7 +22,7 @@
                         Phone: +91-22-25004080 +91-98331-22122
                         Email : info@autofurze.com</p>
 
-            </div>
+            </div> --}}
         </div>
 
         </div>

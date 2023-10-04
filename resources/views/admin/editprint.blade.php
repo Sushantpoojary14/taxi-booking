@@ -99,8 +99,8 @@
                         required maxlength="10" />
                     <p class="text-sm text-red-700 p-2" id="err_phone" style="display: none">*Invalid Number
                     </p>
-                    <x-select-input id="c_payment" name="c_payment" class="w-full" required>
-                        <option selected disabled hidden value="">Select</option>
+                   <x-select-input id="c_payment" name="c_payment" class="w-full" required>
+                       <option ption selected disabled hidden value="">Select</option>
                         <option value="cash"> Cash </option>
                         <option value="upi"> UPI </option>
                         <option value="card"> Card </option>

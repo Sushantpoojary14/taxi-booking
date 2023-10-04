@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title> Autofurze Taxi Booking</title>
+    <title>YOHTAXI</title>
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -26,7 +26,7 @@
         <nav class="text-gray-800 bg-black flex flex-wrap mb-4 p-5 ">
             <div class="w-full m-auto  text-base  px-2">
                 <h2 class="font-semibold text-2xl text-center text-white">
-                    Auto Furze Taxi Booking
+                    YOHTAXI
                 </h2>
             </div>
         </nav>

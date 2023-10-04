@@ -35,14 +35,14 @@
         <nav class="text-gray-800 bg-black flex flex-wrap mb-4 p-5 ">
             <div class="w-full m-auto  text-base  px-2">
                 <h2 class="font-semibold text-2xl text-center text-white">
-                    Auto Furze Taxi Booking
+                    YOHTAXI
                 </h2>
             </div>
         </nav>
 
         @yield('content')
 
-        <img src="{{ asset('assets/airport_logo-removebg.png') }}" alt="">
+        {{-- <img src="{{ asset('assets/airport_logo-removebg.png') }}" alt=""> --}}
 
         @include('driver.layouts.footer')
     </div>

@@ -9,10 +9,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.tailwindcss.com/2.2.19/tailwind.min.css" rel="stylesheet">
 
-    <title> Autofurze Taxi Booking </title>
+    <title> YOHTAXI </title>
 
     @yield('css')
-  
+
     <style>
         body{
             background-image: url('{{asset('assets/Parking Taxi Cars and City Background-2.jpg')}}');
@@ -21,7 +21,7 @@
             background-size: cover;
 
         }
-        
+
     </style>
 
 </head>
@@ -30,7 +30,7 @@
      <div class="body flex flex-col min-h-screen">
         @include('customer.layouts.navigation')
         @yield('content')
-        <img src="{{asset('assets/airport_logo-removebg.png')}}" alt="">
+        {{-- <img src="{{asset('assets/airport_logo-removebg.png')}}" alt=""> --}}
         @include('customer.layouts.footer')
     </div>
 

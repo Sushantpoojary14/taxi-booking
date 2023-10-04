@@ -19,6 +19,7 @@ class Customer extends Model
         'time_taken',
         'phone',
         'amount',
+        'days',
         'total_amount',
         'url',
         'relation_id',

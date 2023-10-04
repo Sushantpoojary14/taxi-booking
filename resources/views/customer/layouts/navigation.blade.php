@@ -3,9 +3,9 @@
         class="  flex flex-wrap items-center justify-between w-full py-4 md:py-0
          px-4 text-lg text-gray-700 bg-gray-200" >
 
-        <a class="flex title-font font-medium items-center text-white  md:mb-0">
-            <img class="w-50 h-14 "src="{{asset('assets/Auto-Furze-Logo.png')}}" alt="" srcset="">
-        </a>
+        {{-- <a class="flex title-font font-medium items-center text-white  md:mb-0">
+            <img class="w-100 h-14 "src="{{asset('assets/Auto-Furze-Logo.png')}}" alt="" srcset="">
+        </a> --}}
 
         <svg xmlns="http://www.w3.org/2000/svg" id="menu-button" class="h-10 w-8 cursor-pointer md:hidden block"
             fill="none" viewBox="0 0 24 24" stroke="currentColor">

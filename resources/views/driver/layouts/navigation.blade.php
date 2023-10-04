@@ -3,7 +3,7 @@
         <div class="w-full m-auto text-base ">
             <a href="{{ route('driver.dashboard') }}">
                 <h2 class="font-semibold text-lg">
-                    Auto Furze Taxi Booking
+                    YOHTAXI
                 </h2>
             </a>
         </div>

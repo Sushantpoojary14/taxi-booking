@@ -2,14 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-   
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
-    <title>Autofurze Taxi Booking</title>
+    <title>YOHTAXI</title>
     @yield('css')
     <style>
         .body {
@@ -30,10 +30,10 @@
         <div class="body flex flex-col min-h-screen">
             @include('driver.layouts.navigation')
             @yield('content')
-                <img src="{{asset('assets/airport_logo-removebg.png')}}" alt="">
+                {{-- <img src="{{asset('assets/airport_logo-removebg.png')}}" alt=""> --}}
                  @include('driver.layouts.footer')
         </div>
-       
+
         @yield('script')
         <script>
             const button = document.querySelector('#menu-button');
@@ -52,7 +52,7 @@
                 document.getElementById("err_phone").style.display = "block";
                 return false;
             }
-           
+
             document.getElementById("err_phone").style.display = "none";
         });
     </script>

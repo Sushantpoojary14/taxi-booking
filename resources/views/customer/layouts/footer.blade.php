@@ -6,7 +6,7 @@
 
 {{--            <span class="ml-3 text-xl">Autofurze Taxi Booking</span>--}}
           </a>
-          <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">©2023 Autofurze Taxi Booking —
+          <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">©2023 YOHTAXI —
             <a href="https://haztech.in/" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@Haztech</a>
           </p>
           <span href="https://m.facebook.com/haztechgoa" class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

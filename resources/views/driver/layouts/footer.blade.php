@@ -5,7 +5,7 @@
 
 {{--            <span class="ml-3 text-xl">Autofurze Taxi Booking</span>--}}
           </a>
-          <p class="text-sm text-white sm:ml-6 sm:mt-0 mt-4">©2023 Autofurze Taxi Booking —
+          <p class="text-sm text-white sm:ml-6 sm:mt-0 mt-4">©2023 YOHTAXI —
             <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-700 ml-1" target="_blank">@HazTech</a>
           </p>
           <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
