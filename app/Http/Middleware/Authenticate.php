@@ -14,17 +14,22 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        $url = $request->server('SCRIPT_URL');
-        $string = explode("/",$url);
- 
-        
+        $url = $request->server('REQUEST_URI');
+        $string = explode("/", $url);
+
+        // dd($string);
         if (!$request->expectsJson()) {
 
-            if($string[1]=="admin"){
+            if ($string[1] == "admin") {
 
                 return route('admin.login');
+            } else if ($string[1] == "driver") {
+
+                return route('driver.login');
+            } else {
+
+                return route('/');
             }
-            return route('driver.login');
         }
     }
 }

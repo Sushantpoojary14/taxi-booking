@@ -42,7 +42,7 @@
 @endsection
 @section('content')
     <section class="text-black body-font  mx-2 ">
-        <div class="text-center w-full px-2 py-1 mx-auto ">
+        <div class="w-8/12 text-center px-2 py-1 mx-auto  ">
             <div
                 class="flex flex-col md:flex-row md:w-9/12 lg:w-9/12 lg:flex-row  px-4  space-y-5 my-5 items-center mx-auto">
                 <h1 class="block w-100 text-lg sm:text-2xl font-medium title-font text-white text-center">
@@ -51,28 +51,56 @@
 
             </div>
             <div class="w-9/12 mx-auto font-medium text-xl space-y-8 ">
-                <form id="my-form">
+                {{-- <form id="my-form"> --}}
+                <form action="{{ route('admin.print') }}" method="post" >
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $data->id }}">
+                    <input type="hidden" name="invoice" value="{{ $randomString }}">
+                    <div class="relative mb-4">
+                        <x-text-input type="text" id="name" name="name" placeholder="Customers Name" required />
 
+                    </div>
+                    <div class="relative mb-4">
+                        <x-text-input type="text" id="phone" name="phone" class="" placeholder="Phone Number"
+                            required maxlength="10" />
 
-                    <input type="hidden" name="c_vehicle" id="c_vehicle" value="{{ $data->category_id }}">
+                        <p class="text-sm text-red-700 p-2" id="err_phone" style="display: none">*Invalid Number
+                        </p>
+                    </div>
+                    <div class="relative mb-4">
+                        <x-text-input type="text" id="days" name="days" class="" placeholder="Days"
+                            required maxlength="10" />
+                    </div>
+                    <div class="relative mb-4">
+                        <x-select-input id="c_payment" name="c_payment" class="w-full" required>
+                            <option ption selected disabled hidden value="">Select</option>
+                            <option value="cash"> Cash </option>
+                            <option value="upi"> UPI </option>
+                            <option value="card"> Card </option>
+                        </x-select-input>
+
+                    </div>
+
+                    {{-- <input type="hidden" name="c_vehicle" id="c_vehicle" value="{{ $data->category_id }}">
                     <input type="hidden" name="c_permit" id="c_permit" value="3">
                     <div class="mt-4 w-full">
                         <x-text-input type="text" id="c_to" name="c_to" class="" />
                         <x-input-error :messages="$errors->get('c_to')" class="mt-2" placeholder="Location" required />
                         <p class="text-sm text-red-700 p-2" id="err_location" style="display: none">
                             *No Location Found</p>
-                    </div>
-                    <x-input-error :messages="$errors->get('c_phone')" class="mt-2" />
+                    </div> --}}
+                    {{-- <x-input-error :messages="$errors->get('c_phone')" class="mt-2" />
                     <x-input-error :messages="$errors->get('c_name')" class="mt-2" />
-                    <x-input-error :messages="$errors->get('c_payment')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('c_payment')" class="mt-2" /> --}}
 
 
 
                     <div class="w-full flex justify-center  space-x-5">
                         <div class="flex mt-4 item-center">
-                            <x-primary-button class="mx-auto px-7 py-3" id="button">
+                            <x-primary-button class="mx-auto px-7 py-3"  id="form">
                                 {{ __('Book') }}
                             </x-primary-button>
+
                         </div>
                         <div class="flex mt-4 item-center">
                             <a class="inline-flex items-center  px-6 py-2  border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest  focus:bg-gray-700  active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 lg:8px text-center bg-red-500"
@@ -85,7 +113,7 @@
             </div>
         </div>
     </section>
-    <div id="myModal" class="modal">
+    {{-- <div id="myModal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
@@ -99,8 +127,13 @@
                         required maxlength="10" />
                     <p class="text-sm text-red-700 p-2" id="err_phone" style="display: none">*Invalid Number
                     </p>
-                   <x-select-input id="c_payment" name="c_payment" class="w-full" required>
-                       <option ption selected disabled hidden value="">Select</option>
+                    <div class="relative mb-4">
+                        <x-text-input type="text" id="days" name="days" class="" placeholder="Days"
+                            required maxlength="10" />
+
+                    </div>
+                    <x-select-input id="c_payment" name="c_payment" class="w-full" required>
+                        <option ption selected disabled hidden value="">Select</option>
                         <option value="cash"> Cash </option>
                         <option value="upi"> UPI </option>
                         <option value="card"> Card </option>
@@ -145,32 +178,32 @@
 
         </div>
 
-    </div>
+    </div> --}}
 @endsection
 @section('script')
     <script>
         const inputField = document.getElementById("phone");
-        const discountField = document.getElementById("discount");
-        let temp_total_fair = 0;
-        let temp_fair = 0;
+        // const discountField = document.getElementById("discount");
+        // let temp_total_fair = 0;
+        // let temp_fair = 0;
 
-        discountField.addEventListener("input", function() {
-            let total_fair = parseInt(document.getElementById("total_fair").value);
-            let fair = parseInt(document.getElementById("fair").value);
-            if(temp_total_fair == 0 && temp_fair == 0){
-                temp_total_fair = total_fair;
-                temp_fair = fair;
-            }
-            let discount = parseInt(discountField.value) || 0;
-            total_fair = temp_total_fair - discount;
-            console.log("discount " + discount);
-            fair = temp_fair - discount;
-            console.log("fair " + fair);
-            console.log("tfair " + total_fair);
-            document.getElementById("total_fair").value = total_fair;
-            document.getElementById("fair").value = fair;
-            document.getElementById("total_amount").textContent = total_fair;
-        });
+        // discountField.addEventListener("input", function() {
+        //     let total_fair = parseInt(document.getElementById("total_fair").value);
+        //     let fair = parseInt(document.getElementById("fair").value);
+        //     if (temp_total_fair == 0 && temp_fair == 0) {
+        //         temp_total_fair = total_fair;
+        //         temp_fair = fair;
+        //     }
+        //     let discount = parseInt(discountField.value) || 0;
+        //     total_fair = temp_total_fair - discount;
+        //     console.log("discount " + discount);
+        //     fair = temp_fair - discount;
+        //     console.log("fair " + fair);
+        //     console.log("tfair " + total_fair);
+        //     document.getElementById("total_fair").value = total_fair;
+        //     document.getElementById("fair").value = fair;
+        //     document.getElementById("total_amount").textContent = total_fair;
+        // });
 
 
         inputField.addEventListener("input", function() {
@@ -183,16 +216,16 @@
             document.getElementById("err_phone").style.display = "none";
         });
     </script>
-    <script>
+    {{-- <script>
         let span = document.getElementsByClassName("close")[0];
         let modal = document.getElementById("model2");
         span.onclick = function() {
             modal.style.display = "none";
         };
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbkfxLAeub3xTaYSuUUGH_Thhd-klQQCk&libraries=places">
+    </script> --}}
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbkfxLAeub3xTaYSuUUGH_Thhd-klQQCk&libraries=places">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    <script src="{{ asset('js/map10.js') }}"></script>
+    <script src="{{ asset('js/map10.js') }}"></script> --}}
 @endsection

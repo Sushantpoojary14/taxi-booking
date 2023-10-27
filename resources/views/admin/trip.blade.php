@@ -110,7 +110,7 @@
                                     @if ($item2->relation_id == $item->id)
                                         @php
                                             $total_trip += 1;
-                                            $d_total += $item2->amount;
+                                            $d_total += $item2->total_amount;
                                         @endphp
                                     @endif
                                 @endforeach

@@ -48,7 +48,8 @@ Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin', 'as' => 'admi
     // Route::get('/showadd', function () {
     //     return view('admin.add');
     // })->name('add');
-
+    Route::get('/showpriceedit', [AdminController::class, 'EditPrice'])->name('showpriceedit');
+    Route::post('/updatepriceedit', [AdminController::class, 'updatePrice'])->name('updatepriceedit');
     Route::get('/showedit/{id}', [AdminController::class, 'edit'])->name('showedit');
     Route::post('/edit', [AdminController::class, 'update'])->name('edit');
     Route::get('/destroy/{id}', [AdminController::class, 'destroy'])->name('destroy');

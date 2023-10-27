@@ -1,4 +1,45 @@
 @extends('admin.layouts.app')
+@section('style')
+<style>
+    .modal {
+        /* display: none; */
+        position: fixed;
+        z-index: 3;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        transition-delay: 1s;
+    }
+
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+@endsection
 @section('content')
     <section class="text-black body-font  mx-2 ">
         <div class=" text-center w-full mb-5 px-2 py-1 mx-auto ">
@@ -9,8 +50,7 @@
                 <div class="relative w-72 md:flex lg:flex md:space-x-2 lg:space-x-2">
 
                     <x-input-label for="car_type" class="text-white my-2" :value="__('Car Type: ')" />
-                    <x-select-input  id="car_type"  name="car_type"
-                        onchange="data()">
+                    <x-select-input id="car_type" name="car_type" onchange="data()">
                         <option value="">Select</option>
                     </x-select-input>
 
@@ -45,9 +85,13 @@
             </div>
         </div>
     </section>
+
+
 @endsection
 
+
 @section('script')
+
     <script>
         let table = document.getElementById("tbody");
         let currentPage = 0;
@@ -108,7 +152,7 @@
             });
         }, 5000);
 
-        
+
 
         async function data(page) {
             // e.preventDefault()
@@ -220,5 +264,21 @@
 
 
         }
+
+
     </script>
+@if (Session('success'))
+<div id="myModal" class="modal">
+    {{-- <div class="relative w-full h-full max-w-2xl md:h-auto"> --}}
+        <x-success-model/>
+    <script>
+        console.log("log");
+        let span = document.getElementById("close");
+        let modal = document.getElementById("myModal");
+        span.onclick = function() {
+            modal.style.display = "none";
+        };
+    </script>
+</div>
+@endif
 @endsection

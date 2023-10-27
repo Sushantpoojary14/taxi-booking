@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('style')
-    <STYLE>
+    {{-- <STYLE>
         li,
         p,
         td {
@@ -52,7 +52,7 @@
 
 
         @media print {
-        
+
             .hidden-print,
             #header,
             h1,
@@ -63,7 +63,7 @@
             .hidden-print * {
                 display: none !important;
             }
-            
+
             .print-80mm {
                 width: 80mm;
               }
@@ -89,11 +89,50 @@
                 margin: 0.1cm 0.1cm 0.1cm 0.1cm;
             }
         }
-    </STYLE>
+    </STYLE> --}}
+    <style>
+        .modal {
+            /* display: none; */
+            position: fixed;
+            z-index: 3;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            transition-delay: 1s;
+        }
+
+
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 @endsection
 @section('content')
-    <section class=" text-black body-font mx-2 md:mx-auto lg:mx-auto  bg-gray-300 print-80mm">
-        <div class=" w-full mb-5  py-1 mx-auto ">
+<section class=" text-black body-font mx-2 md:mx-auto lg:mx-auto  bg-gray-300 print-80mm">
+        {{-- <div class=" w-full mb-5  py-1 mx-auto ">
             <div class=" px-4 space-y-5 my-5">
                 <h1 class="block w-100 text-xl sm:text-2xl font-bold title-font text-center text-zinc-900">Edit/Print Details
                 </h1>
@@ -168,13 +207,7 @@
                                         <td class="price text-center">
                                             {{ round(($price->sgst / 100) * $customer->amount) }}</td>
                                     </tr>
-                                    {{-- <tr>
-                                        <td class="quantity"></td>
-                                        <td class="description">*IGST @ {{ $price->igst }}% on A & B
-                                        </td>
-                                        <td class="price text-center">
-                                            {{ round(($price->igst / 100) * $customer->amount) }}</td>
-                                    </tr> --}}
+
                                     <tr>
                                         <td class="quantity"></td>
                                         <td class="description">Parking/Toll </td>
@@ -210,7 +243,7 @@
                         </div>
 
                         <div class="w-full flex justify-center  space-x-5 ">
-                          
+
                             <button
                                 class=" text-white bg-green-500 border-0 py-2 px-8  focus:outline-none mt-8 hover:bg-green-700 rounded text-lg"
                                 class="btnprn" id="btnprn">
@@ -224,15 +257,17 @@
                 </form>
             </div>
 
-        </div>
+        </div> --}}
     </section>
-    <script>
+{{-- <script>
         document.getElementById("btnprn").addEventListener("click", function() {
             window.print();
             // window.location.href = "{{ route('admin.queue') }}"
         });
-    </script>
+    </script> --}}
+
 @endsection
+
 @section('script')
-    <script src="{{ asset('js/print.js') }}"></script>
+    {{-- <script src="{{ asset('js/print.js') }}"></script> --}}
 @endsection

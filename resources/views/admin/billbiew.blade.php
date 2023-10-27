@@ -25,9 +25,9 @@
                     <x-primary-button id="e_btn" onclick="javascript: form.action='{{ route('admin.editdetails') }}';">
                         {{ __('Edit') }}
                     </x-primary-button>
-                    <x-primary-button  id="g_btn" onclick="javascript: form.action='{{ route('admin.generatebill') }}';">
+                    {{-- <x-primary-button  id="g_btn" onclick="javascript: form.action='{{ route('admin.generatebill') }}';">
                         {{ __('Generate') }}
-                    </x-primary-button>
+                    </x-primary-button> --}}
                 </div>
             </form>
 

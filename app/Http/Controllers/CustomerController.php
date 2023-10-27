@@ -38,15 +38,16 @@ class CustomerController extends Controller
 
     public function DriverMessage($customer, $data)
     {
-        $phone = '91' . $data->driver->phone;
+        //   dd($customer);
+        // $phone = '91' . $data->driver->phone;
 
-        // $phone = '917798710272';
-        $url = 'https://yohtaxi.com/map/' . $customer->id;
-
+        $phone = "918805778742";
+        // $url = 'https://yohtaxi.com/map/' . $customer->id;
+        $url = 'https://yohtaxi.com/map/';
         $client = new \GuzzleHttp\Client();
 
         $response = $client->request('POST', 'https://control.msg91.com/api/v5/flow/', [
-            'body' => '{"template_id":"64548e54d6fc0518552d12f2","sender":"AUTOFU","short_url":"1 (On) or 0 (Off)","mobiles":"' . $phone . '","name":"' . $customer->fullname . '","number":"' . $customer->phone . '","url":"' . $url . '"}',
+            'body' => '{"template_id":"64537bfbd6fc051902071af2","sender":"AUTOFU","short_url":"1 (On) or 0 (Off)","mobiles":"' . $phone . '","name":"' . $customer->fullname . '","number":"' . $customer->phone . '","url":"' . $url . '"}',
             'headers' => [
                 'accept' => 'application/json',
                 'authkey' => '391731AFktd64R1R46406d721P1',
@@ -233,6 +234,12 @@ class CustomerController extends Controller
             ]);
 
         $category = $request->category;
+        $data = $this->relationClass::query()
+        ->where('id', $driver->relation_id)
+        ->with('driver', 'vehicles', 'category')
+        ->first();
+        $this->CustomerMessage($customer, $data);
+        $this->DriverMessage($customer, $data);
         $request->session()->flash('success', 'success');
         return redirect()->back();
         //  return view('payment.form', compact('order_id', 'customer','category'));

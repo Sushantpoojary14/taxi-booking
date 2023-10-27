@@ -35,9 +35,16 @@
             </li>
              <li>
                 <a class=" hover:text-white">
-
                     <x-nav-link :href="route('admin.billview')" :active="request()->routeIs('admin.billview')">
                         {{ __('Billing') }}
+                    </x-nav-link>
+                </a>
+            </li>
+            <li>
+                <a class=" hover:text-white">
+
+                    <x-nav-link :href="url('admin/showpriceedit')" :active="request()->routeIs('admin.showpriceedit')">
+                        {{ __('Edit Price') }}
                     </x-nav-link>
 
                 </a>
